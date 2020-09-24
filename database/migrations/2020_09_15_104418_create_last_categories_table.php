@@ -17,7 +17,7 @@ class CreateLastCategoriesTable extends Migration
             $table->id();
             $table->integer('sub_categories_id');
             $table->string('title');
-            $table->string('SubTitle');
+            $table->string('SubTitle')->nullable();
             $table->float('amount');
             $table->text('descriptions');
             $table->timestamps();

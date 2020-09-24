@@ -29,6 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/save_code','App\Http\Controllers\Admin\CodeController@store');
     Route::post('/edit_code/update/{id}','App\Http\Controllers\Admin\CodeController@update');
     Route::get('code/remove/{id}','App\Http\Controllers\Admin\CodeController@destroy');
+    Route::get('dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
+
 
 });
 
@@ -37,5 +39,8 @@ Route::group(['prefix' => 'helper'], function () {
     // Helper For Admin
     Route::get('categories/index','App\Http\Controllers\Admin\ApiHelperController@categoriesIndex');
     Route::get('sub_categories/with_category_id/{id}','App\Http\Controllers\Admin\ApiHelperController@subCategoryIndexWithCategoryId');
+    Route::get('last_categories/with_category_id/{id}', 'App\Http\Controllers\Admin\ApiHelperController@lastCategoryIndexWithSubCategory');
 
+
+    // Admin Controller
 });

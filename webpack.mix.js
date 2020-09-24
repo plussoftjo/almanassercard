@@ -15,4 +15,5 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/containers/Code/code.js", "public/js")
     .js("resources/js/containers/AddCode/add_code.js",'public/js')
     .js("resources/js/containers/EditCode/edit_code.js",'public/js')
+    .js('resources/js/containers/Dashboard/dashboard.js','public/js')
     .sass("resources/sass/app.scss", "public/css");
