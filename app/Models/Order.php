@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
     public $with = ['categories','Code','SubCategories'];
 
-    protected $fillable = ['user_id','code_id','categories_id','sub_categories_id','amount'];
+    protected $fillable = ['user_id','code_id','categories_id','sub_categories_id','amount','last_categories_id'];
 
     public function categories() {
         return $this->belongsTo('App\Models\categories');

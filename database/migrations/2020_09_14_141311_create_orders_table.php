@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('code_id');
             $table->integer('categories_id');
             $table->integer('sub_categories_id');
+            $table->integer('last_categories_id')->default(0);
             $table->float('amount');
             $table->timestamps();
         });
