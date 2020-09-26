@@ -12,7 +12,7 @@ Route::get('main/index','App\Http\Controllers\Api\MainController@index');
 Route::post('auth/register','App\Http\Controllers\Api\AuthController@register');
 Route::post('auth/login','App\Http\Controllers\Api\AuthController@login');
 Route::post('auth/update','App\Http\Controllers\Api\AuthController@login');
-Route::get('auth/get/{$id}','App\Http\Controllers\Api\AuthController@get_user');
+Route::get('auth/get/{id}','App\Http\Controllers\Api\AuthController@get_user');
 
 
 /** Order Controller  */

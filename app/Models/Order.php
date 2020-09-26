@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    public $with = ['categories','Code','SubCategories'];
+    public $with = ['categories','Code','SubCategories','LastCategories'];
 
     protected $fillable = ['user_id','code_id','categories_id','sub_categories_id','amount','last_categories_id'];
 
@@ -22,6 +22,10 @@ class Order extends Model
 
     public function SubCategories() {
         return $this->belongsTo('App\Models\SubCategories');
+    }
+
+    public function LastCategories() {
+        return $this->belongsTo('App\Models\LastCategories');
     }
 
 }
