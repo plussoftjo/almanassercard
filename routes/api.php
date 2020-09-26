@@ -16,7 +16,7 @@ Route::get('auth/get/{$id}','App\Http\Controllers\Api\AuthController@get_user');
 
 
 /** Order Controller  */
-Route::post('order/store','App\Http\Controllers\Api\OrderController@StoreOrder');
+Route::post('order/store','App\Http\Controllers\Api\OrderController@NewStoreOrder');
 Route::get('order/index/{user_id}','App\Http\Controllers\Api\OrderController@index');
 
 // Categories

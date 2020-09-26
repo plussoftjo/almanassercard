@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Wallet;
+use App\Models\wallet;
 use App\Models\Code;
 use App\Models\SubCategories;
 class OrderController extends Controller
