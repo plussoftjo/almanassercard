@@ -30,8 +30,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/edit_code/update/{id}','App\Http\Controllers\Admin\CodeController@update');
     Route::get('code/remove/{id}','App\Http\Controllers\Admin\CodeController@destroy');
     Route::get('dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
+    Route::get('/add_balance','App\Http\Controllers\Admin\AdminController@add_balance_view');
+    Route::post('/add_balance/store','App\Http\Controllers\Admin\AdminController@add_balance');
 
 
+    /** Reports */
+    Route::get('/reports','App\Http\Controllers\Admin\ReportController@index');
+    Route::get('/reports/fetch/{type}','App\Http\Controllers\Admin\ReportController@fetch');
+
+    
+
+    /** FetchCount */
+    Route::get('/fetch_count','App\Http\Controllers\Admin\FetchCountController@index');
+    Route::post('/fetch_count/fetch','App\Http\Controllers\Admin\FetchCountController@fetch');
 });
 
 

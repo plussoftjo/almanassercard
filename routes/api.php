@@ -28,3 +28,7 @@ Route::post('search/index','App\Http\Controllers\Api\MainController@search');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('auth/auth','App\Http\Controllers\Api\AuthController@auth');
 });
+
+
+/** Report Controller */
+Route::post('report/fetch','App\Http\Controllers\Api\ReportController@fetch');

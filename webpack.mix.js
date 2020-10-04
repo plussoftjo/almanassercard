@@ -13,7 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js("resources/js/app.js", "public/js")
     .js("resources/js/containers/Code/code.js", "public/js")
-    .js("resources/js/containers/AddCode/add_code.js",'public/js')
-    .js("resources/js/containers/EditCode/edit_code.js",'public/js')
-    .js('resources/js/containers/Dashboard/dashboard.js','public/js')
+    .js("resources/js/containers/AddCode/add_code.js", "public/js")
+    .js("resources/js/containers/EditCode/edit_code.js", "public/js")
+    .js("resources/js/containers/Dashboard/dashboard.js", "public/js")
+    .js("resources/js/containers/AddBalance/add_balance.js", "public/js")
+    .js("resources/js/containers/Reports/reports.js", "public/js")
+    .js("resources/js/containers/FetchCount/fetch_count.js", "public/js")
     .sass("resources/sass/app.scss", "public/css");

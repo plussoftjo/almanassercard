@@ -1,8 +1,11 @@
 {
+    "/js/add_balance.js": "/js/add_balance.js",
     "/js/add_code.js": "/js/add_code.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/code.js": "/js/code.js",
     "/js/dashboard.js": "/js/dashboard.js",
-    "/js/edit_code.js": "/js/edit_code.js"
+    "/js/edit_code.js": "/js/edit_code.js",
+    "/js/fetch_count.js": "/js/fetch_count.js",
+    "/js/reports.js": "/js/reports.js"
 }

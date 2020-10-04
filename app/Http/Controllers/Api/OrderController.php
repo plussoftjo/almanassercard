@@ -184,7 +184,7 @@ class OrderController extends Controller
     }
 
     public function index($user_id) {
-        $order = Order::where('user_id',$user_id)->get();
+        $order = Order::where('user_id',$user_id)->orderBy('id','desc')->get();
         return response()->json($order);
     }
 }

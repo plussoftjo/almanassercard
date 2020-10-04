@@ -9,7 +9,7 @@ class wallet extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','wallet'];
+    protected $fillable = ['user_id','amount'];
 
     public function User() {
         return $this->belongsTo('App\Models\User');
