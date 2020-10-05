@@ -15,8 +15,8 @@
                     <tr v-for="code in codes" :key="code.id">
                         <th scope="row">{{code.id}}</th>
                         <td>{{code.code}}</td>
-                        <td>{{code.categories.title}}</td>
-                        <td>{{code.sub_categories.title}}</td>
+                        <td v-if="code.categories">{{code.categories.title}}</td>
+                        <td v-if="code.sub_categories">{{code.sub_categories.title}}</td>
                         <td>
                             <span v-if="code.active == 0" style="color:green;font-weight:700;">Active</span>
                             <span v-if="code.active == 1" style="color:red;font-weight:700;">Used</span>

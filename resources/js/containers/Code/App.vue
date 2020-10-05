@@ -24,6 +24,9 @@
                             <button @click="remove(code.id)" title="delete" class="btn btn-danger restore" >
                                 <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
                             </button>
+                            <button @click="order(code.id)" title="delete" class="btn btn-success restore" >
+                                <i class="voyager-double-right"></i> <span class="hidden-xs hidden-sm">Order</span>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -43,7 +46,7 @@ export default {
             }).catch(err => {console.log(err)});
         },
         order(id) {
-            confirm('Do you want order ?') && axios.get().then(res => {
+            confirm('Do you want order ?') && axios.get('/admin/code/change_state/' + id).then(res => {
                 location.reload()
             }).catch(err => {console.log(err)})
         }

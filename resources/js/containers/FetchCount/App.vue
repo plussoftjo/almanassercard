@@ -72,6 +72,9 @@
               <i class="voyager-trash"></i>
               <span class="hidden-xs hidden-sm">Delete</span>
             </button>
+            <button @click="order(code.id)" title="delete" class="btn btn-success restore" >
+                                <i class="voyager-double-right"></i> <span class="hidden-xs hidden-sm">Order</span>
+                            </button>
           </td>
         </tr>
         <tr>
@@ -179,6 +182,11 @@ export default {
         }
       });
     },
+        order(id) {
+            confirm('Do you want order ?') && axios.get('/admin/code/change_state/' + id).then(res => {
+                location.reload()
+            }).catch(err => {console.log(err)})
+        }
   },
 };
 </script>

@@ -44,6 +44,9 @@ Route::group(['prefix' => 'admin'], function () {
     /** FetchCount */
     Route::get('/fetch_count','App\Http\Controllers\Admin\FetchCountController@index');
     Route::post('/fetch_count/fetch','App\Http\Controllers\Admin\FetchCountController@fetch');
+
+    // Change code
+    Route::get('/code/change_state/{id}','App\Http\Controllers\Admin\CodeController@updateActive');
 });
 
 
