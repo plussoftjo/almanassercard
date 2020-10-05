@@ -6,13 +6,9 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="voyager-list"></i> Codes
+            <i class="voyager-list"></i> Code Trash
         </h1>
-       <a href="/admin/add_code" class="btn btn-success btn-add-new">
-            <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
-        </a>
     </div>
-    
 @stop
 
 @section('content')

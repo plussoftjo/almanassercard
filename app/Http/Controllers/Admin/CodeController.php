@@ -18,7 +18,7 @@ class CodeController extends Controller
     }
 
     public function show_code() {
-        $codes = Code::get();
+        $codes = Code::where('active',0)->get();
         return view('Containers/Admin/Code',[
             'codes' => $codes
         ]);
@@ -88,5 +88,18 @@ class CodeController extends Controller
     public function destroy($id)
     {
         Code::where('id',$id)->delete();
+    }
+
+    public function CodeTrash() {
+        $codes = Code::where('active',1)->get();
+        return view('Containers/Admin/CodeTrash',[
+        'codes' => $codes
+        ]);
+    }
+
+    public function updateActive($id) {
+        $code = Code::where('id',$id)->update([
+            'active' => 1
+        ]);
     }
 }

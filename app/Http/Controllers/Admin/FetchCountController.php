@@ -15,11 +15,11 @@ class FetchCountController extends Controller
         $has_last_category = $request->has_last_category;
 
         if(!$has_last_category) {
-            $codes = Code::where('categories_id',$request->categories_id)->where('sub_categories_id',$request->sub_categories_id)->get();
+            $codes = Code::where('active',0)->where('categories_id',$request->categories_id)->where('sub_categories_id',$request->sub_categories_id)->get();
             return response()->json($codes);
         }else {
             $codes =
-            Code::where('categories_id',$request->categories_id)->where('sub_categories_id',$request->sub_categories_id)->where('sub_sub_categories_id',$request->last_categories_id)->get();
+            Code::where('active',0)->where('categories_id',$request->categories_id)->where('sub_categories_id',$request->sub_categories_id)->where('sub_sub_categories_id',$request->last_categories_id)->get();
             return response()->json($codes);
         }
     }

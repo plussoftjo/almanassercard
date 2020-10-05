@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     // Code 
     Route::get('/code','App\Http\Controllers\Admin\CodeController@show_code');
+    Route::get('/code_trash','App\Http\Controllers\Admin\CodeController@CodeTrash');
     Route::get('/add_code','App\Http\Controllers\Admin\CodeController@show_add_code');
     Route::get('/edit_code/{id}','App\Http\Controllers\Admin\CodeController@show_edit_code');
     Route::post('/save_code','App\Http\Controllers\Admin\CodeController@store');
