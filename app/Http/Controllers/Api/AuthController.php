@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
     public function register(Request $request) {
@@ -75,6 +77,22 @@ class AuthController extends Controller
             'name' => $name,
             'password' => $password
         ]);
+    }
 
+    public function update_password(Request $request) {
+        $newPassword = bcrypt($request->newPassword);
+        $oldPassword = $request->oldPassword;
+        $user = User::where('id',$request->id)->first();
+        $itsPassword = Hash::check($oldPassword,$user->password);
+        if($itsPassword) {
+            User::where('id',$request->id)->update([
+            'password' => $newPassword
+            ]);
+
+            return response()->json(['message' => 'update success !'],200);
+        }else {
+            return response()->json(['message' => 'Not the same password'],401);
+        }
+       
     }
 }

@@ -13,6 +13,7 @@ Route::post('auth/register','App\Http\Controllers\Api\AuthController@register');
 Route::post('auth/login','App\Http\Controllers\Api\AuthController@login');
 Route::post('auth/update','App\Http\Controllers\Api\AuthController@login');
 Route::get('auth/get/{id}','App\Http\Controllers\Api\AuthController@get_user');
+Route::post('auth/update_password','App\Http\Controllers\Api\AuthController@update_password');
 
 
 /** Order Controller  */
