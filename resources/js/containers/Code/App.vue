@@ -5,6 +5,7 @@
                     <tr>
                     <th  scope="col">#</th>
                     <th scope="col">Code</th>
+                    <th scope="col">Serial Number</th>
                     <th scope="col">Categories</th>
                     <th scope="col">Sub Categories</th>
                     <th scope="col">Actions</th>
@@ -14,6 +15,7 @@
                     <tr v-for="code in codes" :key="code.id">
                         <th scope="row">{{code.id}}</th>
                         <td>{{code.code}}</td>
+                        <td>{{code.serial}}</td>
                         <td>{{code.categories.title}}</td>
                         <td>{{code.sub_categories.title}}</td>
                         <td>

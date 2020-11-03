@@ -9,6 +9,11 @@
         <label for="code">Code</label>
         <input type="text" id="code" class="form-control" placeholder="Code" v-model="data.code" />
       </div>
+      <!-- Serial -->
+      <div class="form-group">
+        <label for="serial">Serial Number</label>
+        <input type="text" id="serial" class="form-control" placeholder="Serial Number" v-model="data.serial" />
+      </div>
       <!-- Categories -->
       <div class="form-group">
         <label for="Categories">Category</label>
@@ -64,6 +69,7 @@ export default {
       last_categories: [],
       data: {
         code: "",
+        serial: "",
         category: "",
         sub_category: "",
         last_category: "",
@@ -169,10 +175,10 @@ export default {
   },
   created() {
     const vm = this;
-    console.log(vm.code);
     vm.categoriesIndex();
     vm.data = {
       code: vm.code.code,
+      serial: vm.code.serial,
       category: vm.code.categories_id,
       sub_category: vm.code.sub_categories_id,
     };

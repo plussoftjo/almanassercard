@@ -19,6 +19,7 @@ class CreateCodesTable extends Migration
             $table->integer('categories_id');
             $table->integer('sub_categories_id');
             $table->integer('sub_sub_categories_id')->nullable();
+            $table->string("serial")->nullable()->default("");
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

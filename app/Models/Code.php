@@ -11,7 +11,7 @@ class Code extends Model
 
     public $with = ['categories','SubCategories'];
 
-    protected $fillable = ['code','categories_id','sub_categories_id','sub_sub_categories_id','active'];
+    protected $fillable = ['code','categories_id','sub_categories_id','sub_sub_categories_id','active','serial'];
 
 
     public function categories() {

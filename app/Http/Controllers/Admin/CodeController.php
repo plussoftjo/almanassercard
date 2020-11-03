@@ -45,6 +45,7 @@ class CodeController extends Controller
     {
         $code = Code::create([
             'code' => $request->code,
+            'serial' => $request->serial,
             'categories_id' => $request->category,
             'sub_categories_id' => $request->sub_category,
             'sub_sub_categories_id' => $request->last_category
@@ -74,6 +75,7 @@ class CodeController extends Controller
         Code::where('id',$id)->update([
             'code' => $request->code,
             'categories_id' => $request->category,
+            'serial' => $request->serial,
             'sub_categories_id' => $request->sub_category,
             'sub_sub_categories_id' => $request->last_category
         ]);
