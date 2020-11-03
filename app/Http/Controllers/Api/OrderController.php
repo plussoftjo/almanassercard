@@ -70,7 +70,8 @@ class OrderController extends Controller
             return response()->json([
                 'status' => 1, // Success
                 'message' => 'Success',
-                'code' => $Code->code
+                'code' => $Code->code,
+                'order' => $Order
             ]);
 
         }else {// Not have Amount from here 
@@ -171,7 +172,8 @@ class OrderController extends Controller
     return response()->json([
     'status' => 1, // Success
     'message' => 'Success',
-    'code' => $Code->code
+    'code' => $Code->code,
+    'order' => $Order
     ]);
 
     }else {// Not have Amount from here
@@ -184,7 +186,7 @@ class OrderController extends Controller
     }
 
     public function index($user_id) {
-        $order = Order::where('user_id',$user_id)->orderBy('id','desc')->get();
+        $order = Order::where('user_id',$user_id)->orderBy('id','desc')->take(10)->get();
         return response()->json($order);
     }
 }
