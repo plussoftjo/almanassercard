@@ -59,6 +59,7 @@ class OrderController extends Controller
                 'amount' => $CodePrice
             ]);
 
+            $the_order = Order::where('id',$Order->id)->first();
             // Code Change to the not active 
             Code::
             where('categories_id',$request->categories_id)->
@@ -71,7 +72,7 @@ class OrderController extends Controller
                 'status' => 1, // Success
                 'message' => 'Success',
                 'code' => $Code->code,
-                'order' => $Order
+                'order' => $the_order
             ]);
 
         }else {// Not have Amount from here 
@@ -163,6 +164,8 @@ class OrderController extends Controller
     'amount' => $CodePrice
     ]);
 
+
+    $the_order = Order::where('id',$Order->id)->first();
     // Code Change to the not active
     Code::
     where('id',$Code->id)->
@@ -173,7 +176,7 @@ class OrderController extends Controller
     'status' => 1, // Success
     'message' => 'Success',
     'code' => $Code->code,
-    'order' => $Order
+    'order' => $the_order
     ]);
 
     }else {// Not have Amount from here
