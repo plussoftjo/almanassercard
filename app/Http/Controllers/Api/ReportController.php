@@ -24,4 +24,14 @@ class ReportController extends Controller
             return response()->json(['message' => 'Not Selected']);
         }
     }
+
+    public function searchWithDate(Request $request) {
+        $from_date = substr($request->dateFrom,0,10);
+        $to_date = substr($request->dateTo,0,10);
+        
+
+        $orders = Order::whereBetween('created_at',array($from_date, $to_date))->where('user_id',$request->user_id)->get();
+
+        return response()->json($orders);
+    }
 }
