@@ -9,6 +9,7 @@ use App\Models\Code;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\wallet;
+use App\Models\WalletLogs;
 class AdminController extends Controller
 {
     public function dashboard() {
@@ -37,12 +38,24 @@ class AdminController extends Controller
                 'user_id' => $request->user_id,
                 'amount' => $request->wallet
             ]);
+
+            WalletLogs::create([
+                'user_id'=> $request->user_id,
+                'amount' => $request->wallet,
+                'old_amount' => "0"
+            ]);
         }else {
             $wallet_value = wallet::where('user_id',$request->user_id)->value('amount');
             $newValue = $wallet_value + $request->wallet;
 
             wallet::where('user_id',$request->user_id)->update([
                 'amount' => $newValue
+            ]);
+
+            WalletLogs::create([
+                'user_id' => $request->user_id,
+                'amount' => $request->wallet,
+                'old_amount' => $wallet_value
             ]);
         }
 

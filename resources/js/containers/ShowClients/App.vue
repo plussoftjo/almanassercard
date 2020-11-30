@@ -22,12 +22,26 @@
         </div>
     </div>
 
-
+    <!-- Order Info -->
+    <div style="padding:20px;border:1px solid black;border-radius:3px;">
+      <h3>Wallet Logs</h3>
+        <div style="border-bottom:1px solid black;" v-for="log in wallet_logs" :key="log.id">
+          <h5>
+            ID: {{log.id}}
+          </h5>
+          <h5>
+            Added Amount{{log.amount}}
+          </h5>
+          <h5>
+            Last Wallet Balance: {{log.old_amount}}
+          </h5>
+        </div>
+    </div>
     </div>
 </template>
 <script>
 export default {
-  props:['user','wallet','order_count','spent'],
+  props:['user','wallet','order_count','spent','wallet_logs'],
   data() {
     return {
       

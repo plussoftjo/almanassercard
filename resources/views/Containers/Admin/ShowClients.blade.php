@@ -19,7 +19,7 @@
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         <div id="app">
-                            <app-route :user="{{$user}}" :spent="{{$spent}}" :order_count="{{$order_count}}" :wallet="{{$wallet}}"></app-route>
+                            <app-route :user="{{$user}}" :wallet_logs="{{$wallet_logs}}" :spent="{{$spent}}" :order_count="{{$order_count}}" :wallet="{{$wallet}}"></app-route>
                         </div>
                     </div>
                 </div>
