@@ -9,7 +9,7 @@ class Code extends Model
 {
     use HasFactory;
 
-    public $with = ['categories','SubCategories'];
+    public $with = ['categories','SubCategories','LastCategories'];
 
     protected $fillable = ['code','categories_id','sub_categories_id','sub_sub_categories_id','active','serial'];
 
@@ -19,5 +19,9 @@ class Code extends Model
     }
     public function SubCategories() {
         return $this->belongsTo('App\Models\SubCategories');
+    }
+
+    public function LastCategories() {
+        return $this->belongsTo('App\Models\LastCategories','sub_sub_categories_id');
     }
 }

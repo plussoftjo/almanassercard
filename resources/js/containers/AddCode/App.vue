@@ -5,9 +5,13 @@
 
     <div class="FormBody">
       <!-- Code -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="code">Code</label>
         <input type="text" id="code" class="form-control" placeholder="Code" v-model="data.code" />
+      </div> -->
+      <div class="form-group">
+        <label for="code">Code:</label>
+        <textarea class="form-control" rows="5" id="code" v-model="data.code"></textarea>
       </div>
       <!-- Serial -->
       <div class="form-group">
@@ -91,6 +95,9 @@ export default {
     },
     save() {
       let vm = this;
+
+      // console.log(vm.data.code.split("\n"))
+
       vm.error = false;
       if (vm.data.code == "") {
         vm.error = true;
@@ -110,6 +117,8 @@ export default {
           return;
         }
       }
+
+      vm.data.code = vm.data.code.split("\n");
 
       // Axios Fetch Save
       axios

@@ -45,13 +45,16 @@ class CodeController extends Controller
      */
     public function store(Request $request)
     {
-        $code = Code::create([
-            'code' => $request->code,
-            'serial' => $request->serial,
-            'categories_id' => $request->category,
-            'sub_categories_id' => $request->sub_category,
-            'sub_sub_categories_id' => $request->last_category
-        ]);
+        foreach ($request->code as $code) {
+            $code = Code::create([
+                'code' => $code,
+                'serial' => $request->serial,
+                'categories_id' => $request->category,
+                'sub_categories_id' => $request->sub_category,
+                'sub_sub_categories_id' => $request->last_category
+            ]);
+        }
+        
     }
 
     /**

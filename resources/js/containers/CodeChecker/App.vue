@@ -15,6 +15,7 @@
       <h3>Code Details</h3>
       <h5>Code: {{code_.code}}</h5>
       <h5>Categories: {{code_.categories.title}} - {{code_.sub_categories.title}} {{code_.sub_categories.SubTitle}}</h5>
+      <h5 v-if="code_.last_categories">{{code_.last_categories.title}}</h5>
       <h5>Active: {{code_.active == 0 ?'Active':"Used"}}</h5>
       <h5>Created At: {{code_.created_at}}</h5>
     </div>
