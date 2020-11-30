@@ -30,7 +30,7 @@ class ReportController extends Controller
         $to_date = substr($request->dateTo,0,10);
         
 
-        $orders = Order::whereBetween('created_at',array($from_date, $to_date))->where('user_id',$request->user_id)->get();
+        $orders = Order::whereBetween('created_at',array($from_date, $to_date))->where('user_id',$request->user_id)->take(20)->get();
 
         return response()->json($orders);
     }

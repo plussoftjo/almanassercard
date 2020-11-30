@@ -47,6 +47,18 @@ Route::group(['prefix' => 'admin'], function () {
 
     // Change code
     Route::get('/code/change_state/{id}','App\Http\Controllers\Admin\CodeController@updateActive');
+
+    Route::get('/code/change_state/{id}','App\Http\Controllers\Admin\CodeController@updateActive');
+
+
+    // Code Checker 
+    Route::get('code_checker','App\Http\Controllers\Admin\CodeController@CodeChecker');
+    Route::post('check/code','App\Http\Controllers\Admin\CodeController@CheckCode');
+
+
+    // Clients
+    Route::get('clients/index','App\Http\Controllers\Admin\ClientController@index');
+    Route::get('clients/show/{id}','App\Http\Controllers\Admin\ClientController@show');
 });
 
 

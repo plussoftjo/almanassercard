@@ -3,9 +3,13 @@
     "/js/add_code.js": "/js/add_code.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/clients.js": "/js/clients.js",
     "/js/code.js": "/js/code.js",
+    "/js/code_checker.js": "/js/code_checker.js",
+    "/js/code_trash.js": "/js/code_trash.js",
     "/js/dashboard.js": "/js/dashboard.js",
     "/js/edit_code.js": "/js/edit_code.js",
     "/js/fetch_count.js": "/js/fetch_count.js",
-    "/js/reports.js": "/js/reports.js"
+    "/js/reports.js": "/js/reports.js",
+    "/js/show_clients.js": "/js/show_clients.js"
 }

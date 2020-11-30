@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Code;
+use App\Models\User;
+use App\Models\Order;
 class CodeController extends Controller
 {
     /**
@@ -103,5 +105,41 @@ class CodeController extends Controller
         $code = Code::where('id',$id)->update([
             'active' => 1
         ]);
+    }
+
+    public function CodeChecker() {
+        return view('Containers/Admin/CodeChecker');
+    }
+
+    public function CheckCode(Request $request) {
+        $code = Code::where('code',$request->code)->first();
+
+        /**
+         * Type = 0 // Code Not Exiets
+         * Type = 1 // Code Exits But Not Have Order
+         */
+        if($code === null) {
+            return response()->json(['type' => 0]);
+        }else {
+            
+            // If Code Exeits
+            $isOrdered = Order::where('code_id',$code->id)->first();
+            if($isOrdered === null) {
+                return response()->json([
+                    'type' => 1,
+                    'code' => $code
+                ]);
+            }else {
+                $user = User::where('id',$isOrdered->user_id)->first();
+                return response()->json([
+                    'type' => 2,
+                    'code' => $code,
+                    'order' => $isOrdered,
+                    'user' => $user
+                ]);
+            }
+
+        }
+
     }
 }

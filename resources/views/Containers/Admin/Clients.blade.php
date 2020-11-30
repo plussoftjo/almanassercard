@@ -1,14 +1,15 @@
 @extends('voyager::master')
 
-@section('page_title', 'Order System')
+@section('page_title', 'Clients')
 
 
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="voyager-list"></i> Code Trash
+             Clients
         </h1>
     </div>
+    
 @stop
 
 @section('content')
@@ -18,7 +19,7 @@
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         <div id="app">
-                            <app-route :codes="{{$codes}}" ></app-route>
+                            <app-route :users="{{$users}}"></app-route>
                         </div>
                     </div>
                 </div>
@@ -28,5 +29,5 @@
 @stop
 
 @section('javascript')
-<script src="/js/code_trash.js"></script>
+<script src="/js/clients.js"></script>
 @stop
