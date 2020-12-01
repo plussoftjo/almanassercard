@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-
+use Carbon\Carbon;
 class User extends \TCG\Voyager\Models\User
 {
 
@@ -43,5 +43,13 @@ class User extends \TCG\Voyager\Models\User
 
     public function wallet() {
         return $this->hasOne('App\Models\wallet');
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::createFromTimestamp(strtotime($value))
+            ->timezone('Asia/Amman')
+            ->toDateTimeString()
+        ;
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Order extends Model
 {
     use HasFactory;
@@ -26,6 +26,14 @@ class Order extends Model
 
     public function LastCategories() {
         return $this->belongsTo('App\Models\LastCategories');
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::createFromTimestamp(strtotime($value))
+            ->timezone('Asia/Amman')
+            ->toDateTimeString()
+        ;
     }
 
 }

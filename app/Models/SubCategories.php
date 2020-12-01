@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class SubCategories extends Model
 {
     use HasFactory;
@@ -22,5 +22,12 @@ class SubCategories extends Model
 
     public function LastCategories() {
         return $this->hasMany('App\Models\LastCategories');
+    }
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::createFromTimestamp(strtotime($value))
+            ->timezone('Asia/Amman')
+            ->toDateTimeString()
+        ;
     }
 }
