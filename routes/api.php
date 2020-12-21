@@ -34,3 +34,5 @@ Route::group(['middleware' => 'auth:api'], function(){
 /** Report Controller */
 Route::post('report/fetch','App\Http\Controllers\Api\ReportController@fetch');
 Route::post('report/searchWithDate','App\Http\Controllers\Api\ReportController@searchWithDate');
+
+Route::get('checkserver','App\Http\Controllers\Api\MainController@checkServer');

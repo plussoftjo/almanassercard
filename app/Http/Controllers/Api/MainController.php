@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\categories;
+use App\Models\server;
 class MainController extends Controller
 {
     public function index() {
@@ -19,5 +20,16 @@ class MainController extends Controller
         $categories = categories::where('title','LIKE','%'.$request->title.'%')->get();
 
         return response()->json($categories);
+    }
+
+    public function checkServer() {
+        $server = server::first();
+        if($server == null) {
+            server::create([
+                'status' => 1
+            ]);
+        }
+
+        return response()->json($server);
     }
 }

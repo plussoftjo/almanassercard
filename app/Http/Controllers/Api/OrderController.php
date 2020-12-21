@@ -161,15 +161,17 @@ class OrderController extends Controller
     'categories_id' => $request->categories_id,
     'sub_categories_id' => $request->sub_categories_id,
     'last_categories_id' => $last_categories_id,
-    'amount' => $CodePrice
+    'amount' => $CodePrice,
+    'code_string' => $Code->code,
+    'serial' => $Code->serial
     ]);
 
 
     $the_order = Order::where('id',$Order->id)->first();
     // Code Change to the not active
     Code::
-    where('id',$Code->id)->
-    update(['active' => 1]);
+    where('id',$Code->id)->update(['active' => 1]);
+    // TODO: Make It Remove
 
     // Return Response
     return response()->json([
@@ -189,7 +191,7 @@ class OrderController extends Controller
     }
 
     public function index($user_id) {
-        $order = Order::where('user_id',$user_id)->orderBy('id','desc')->take(10)->get();
+        $order = Order::where('user_id',$user_id)->orderBy('id','desc')->paginate(10);
         return response()->json($order);
     }
 }

@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\wallet;
 use App\Models\WalletLogs;
+use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function dashboard() {
@@ -61,4 +62,5 @@ class AdminController extends Controller
 
         return response()->json(['message' => 'Success']);
     }
+
 }
